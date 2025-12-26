@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smartcane_app/widgets/common/custom_button.dart';
+import 'common/custom_button.dart';
 
 typedef OnDataFetched = void Function(DateTime start, DateTime end);
 
@@ -26,8 +26,11 @@ class _DateRangeFilterState extends State<DateRangeFilter> {
     );
     if (picked != null) {
       setState(() {
-        if (isStart) startDate = picked;
-        else endDate = picked;
+        if (isStart) {
+          startDate = picked;
+        } else {
+          endDate = picked;
+        }
       });
     }
   }

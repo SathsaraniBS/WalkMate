@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:go_router/go_router.dart'; // Required for context.go()
 
 import 'screens/login_screen.dart';
 import 'screens/home_screen.dart';
@@ -51,7 +51,7 @@ class WalkMateApp extends StatelessWidget {
     return MaterialApp.router(
       title: 'WalkMate',
       debugShowCheckedModeBanner: false,
-      routerConfig: _router, // This enables context.go()
+      routerConfig: _router,
     );
   }
 }

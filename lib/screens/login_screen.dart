@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart'; // Required for context.go()
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -12,7 +13,10 @@ class LoginScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text('SmartStride', style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold)),
+              const Text(
+                'WalkMate',
+                style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+              ),
               const SizedBox(height: 48),
               TextField(
                 decoration: InputDecoration(
@@ -23,8 +27,7 @@ class LoginScreen extends StatelessWidget {
               const SizedBox(height: 24),
               ElevatedButton(
                 onPressed: () {
-                  // TODO: Implement verification and navigation
-                  context.go('/home');
+                  context.go('/home'); // Now recognized
                 },
                 child: const Text('Connect to Device'),
               ),
