@@ -1,54 +1,12 @@
-// import 'package:flutter/material.dart';
-// import 'package:go_router/go_router.dart';
-// import 'screens/login_screen.dart';
-// import 'screens/home_screen.dart';
-// import 'screens/track_screen.dart';
-// import 'screens/settings_screen.dart';
-// import 'screens/notifications_screen.dart';
-
-
-// import 'core/theme.dart';
-// import 'navigation/app_router.dart';
-
-// void main() {
-//   WidgetsFlutterBinding.ensureInitialized();
-//   runApp(const SmartStrideApp());
-// }
-
-// class SmartStrideApp extends StatelessWidget {
-//   const SmartStrideApp({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp.router(
-//       title: 'SmartStride',
-//       debugShowCheckedModeBanner: false,
-//       theme: smartStrideTheme,
-//       darkTheme: smartStrideTheme,
-//       themeMode: ThemeMode.light,
-//       routerConfig: appRouter,
-//       builder: (context, child) {
-//         return MediaQuery(
-//           data: MediaQuery.of(context).copyWith(textScaler: TextScaler.linear(1.0)),
-//           child: SafeArea(child: child!),
-//         );
-//       },
-//     );
-//   }
-// }
-
-// lib/main.dart
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import 'screens/login_screen.dart';
-import 'screens/home_screen.dart';        // Create these placeholder screens
-
-
-void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-  runApp(const WalkMateApp());
-}
+import 'screens/home_screen.dart';
+import 'screens/track_screen.dart';
+import 'screens/settings_screen.dart';
+import 'screens/notifications_screen.dart';
+import 'screens/report_screen.dart';
 
 final GoRouter _router = GoRouter(
   initialLocation: '/login',
@@ -59,11 +17,31 @@ final GoRouter _router = GoRouter(
     ),
     GoRoute(
       path: '/home',
-      builder: (context, state) => const HomeScreen(), // Placeholder
+      builder: (context, state) => const HomeScreen(),
     ),
-    // Add other routes as needed
+    GoRoute(
+      path: '/track',
+      builder: (context, state) => const TrackScreen(),
+    ),
+    GoRoute(
+      path: '/settings',
+      builder: (context, state) => const SettingsScreen(),
+    ),
+    GoRoute(
+      path: '/notifications',
+      builder: (context, state) => const NotificationsScreen(),
+    ),
+    GoRoute(
+      path: '/report',
+      builder: (context, state) => const ReportScreen(),
+    ),
   ],
 );
+
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(const WalkMateApp());
+}
 
 class WalkMateApp extends StatelessWidget {
   const WalkMateApp({super.key});
@@ -73,7 +51,7 @@ class WalkMateApp extends StatelessWidget {
     return MaterialApp.router(
       title: 'WalkMate',
       debugShowCheckedModeBanner: false,
-      routerConfig: _router,
+      routerConfig: _router, // This enables context.go()
     );
   }
 }

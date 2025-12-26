@@ -17,7 +17,7 @@ final ThemeData smartStrideTheme = ThemeData(
     displaySmall: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
     bodyLarge: TextStyle(fontSize: 16),
     bodyMedium: TextStyle(fontSize: 14),
-    labelLarge: TextStyle(fontSize: 14, fontWeight: FontWeight.w500), // Button text
+    labelLarge: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
   ),
   appBarTheme: const AppBarTheme(
     backgroundColor: Color(0xFF2196F3),
@@ -32,9 +32,10 @@ final ThemeData smartStrideTheme = ThemeData(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
     ),
   ),
-  cardTheme: CardTheme(
+  // Fixed: Use CardThemeData instead of CardTheme
+  cardTheme:  CardThemeData(
     elevation: 4,
-    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-    margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+    shape: RoundedRectangleBorder(borderRadius:  BorderRadius.circular(8)),
+    margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
   ),
 );
